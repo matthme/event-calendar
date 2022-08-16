@@ -52,17 +52,18 @@ export class EventCalendar extends LitElement {
             const { event } = eventInfo;
             const { timeText } = eventInfo;
             const titleString =
-              event.title.length > 20
-                ? `${event.title.slice(0, 20)}...`
+              event.title.length > 18
+                ? `${event.title.slice(0, 18)}...`
                 : event.title;
             if (event.extendedProps.weGroupInfo) {
               const { logoSrc } = event.extendedProps.weGroupInfo;
+              const fullTitle = `${event.extendedProps.weGroupInfo.name} - ${event.title}`;
               return `
-              <div style: display: flex; flex-direction: column;>
+              <div title="${fullTitle}" style="display: flex; flex-direction: column; position: relative; color: black; overflow: hidden;">
+                <span style="position: absolute; right: 2px; top: 2px;"><img src=${logoSrc} style="border-radius: 50%; height: 20px; width: 20px; object-fit: cover;"></span>
                 <div style="display: flex; flex-direction: row; margin: 2px 2px 0 2px;">
-                  <span>${titleString}</span>
+                  <span style="overflow-x: hidden;">${titleString}</span>
                   <span style="flex: 1;"></span>
-                  <span><img src=${logoSrc} style="border-radius: 50%; height: 20px; width: 20px; object-fit: cover;"></span>
                 </div>
                 <div>
                   ${timeText}
@@ -70,9 +71,10 @@ export class EventCalendar extends LitElement {
               </div>
             `;
             }
+
             return `
-              <div style: display: flex; flex-direction: column;>
-                <div style="display: flex; flex-direction: row; margin: 2px 2px 0 2px;">
+            <div title="${event.title}" style="display: flex; flex-direction: column; position: relative; color: black; overflow: hidden;">
+              <div style="display: flex; flex-direction: row; margin: 2px 2px 0 2px;">
                   <span>${titleString}</span>
                 </div>
                 <div>
