@@ -47,6 +47,40 @@ export class EventCalendar extends LitElement {
               })
             );
           },
+          eventContent(eventInfo: any) {
+            // for properties of the eventInfo object see https://github.com/vkurko/calendar#eventcontent
+            const { event } = eventInfo;
+            const { timeText } = eventInfo;
+            const titleString =
+              event.title.length > 20
+                ? `${event.title.slice(0, 20)}...`
+                : event.title;
+            if (event.extendedProps.weGroupInfo) {
+              const { logoSrc } = event.extendedProps.weGroupInfo;
+              return `
+              <div style: display: flex; flex-direction: column;>
+                <div style="display: flex; flex-direction: row; margin: 2px 2px 0 2px;">
+                  <span>${titleString}</span>
+                  <span style="flex: 1;"></span>
+                  <span><img src=${logoSrc} style="border-radius: 50%; height: 20px; width: 20px; object-fit: cover;"></span>
+                </div>
+                <div>
+                  ${timeText}
+                </div>
+              </div>
+            `;
+            }
+            return `
+              <div style: display: flex; flex-direction: column;>
+                <div style="display: flex; flex-direction: row; margin: 2px 2px 0 2px;">
+                  <span>${titleString}</span>
+                </div>
+                <div>
+                  ${timeText}
+                </div>
+              </div>
+            `;
+          },
           ...this.props,
         },
       },

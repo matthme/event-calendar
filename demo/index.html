@@ -25,9 +25,47 @@
           id: 'id1',
           resourceIds: [],
           allDay: false,
+          start: new Date(Date.now() - 3600 * 3000),
+          end: new Date(Date.now() - 3600 * 2000),
+          title: 'Importand Meeting',
+          editable: false,
+          startEditable: false,
+          durationEditable: false,
+          display: 'auto',
+          backgroundColor: undefined,
+          extendedProps: {
+            weGroupInfo: {
+              name: "We Group 1",
+              logoSrc: "icon.png"
+            }
+          },
+        },
+        {
+          id: 'id1',
+          resourceIds: [],
+          allDay: false,
           start: new Date(),
           end: new Date(Date.now() + 3600 * 1000),
-          title: 'Meeting',
+          title: 'Meeting with a very very very long title',
+          editable: false,
+          startEditable: false,
+          durationEditable: false,
+          display: 'auto',
+          backgroundColor: undefined,
+          extendedProps: {
+            weGroupInfo: {
+              name: "We Group 1",
+              logoSrc: "icon.png"
+            }
+          },
+        },
+        {
+          id: 'id2',
+          resourceIds: [],
+          allDay: false,
+          start: new Date(Date.now() + 3600 * 3000),
+          end: new Date(Date.now() + 3600 * 4000),
+          title: 'Another Meeting with an even longer title indeed indeed? really? yes, indeed.',
           editable: false,
           startEditable: false,
           durationEditable: false,
