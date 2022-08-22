@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        background: #fafafa;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@event-calendar/build/event-calendar.min.css"
+    />
+  </head>
+  <body>
+    <div id="demo"></div>
+
+    <script type="module">
+      import { html, render } from 'lit';
+      import { EventCalendar } from '../dist';
+
+      customElements.define('event-calendar', EventCalendar);
+      const events = [
+        {
+          id: 'id1',
+          resourceIds: [],
+          allDay: false,
+          start: new Date(Date.now() - 3600 * 3000),
+          end: new Date(Date.now() - 3600 * 2000),
+          title: 'Important Meeting',
+          editable: false,
+          startEditable: false,
+          durationEditable: false,
+          display: 'auto',
+          backgroundColor: undefined,
+          extendedProps: {
+            weGroupInfo: {
+              name: "We Group 1",
+              logoSrc: "icon.png"
+            }
+          },
+        },
+        {
+          id: 'id1',
+          resourceIds: [],
+          allDay: false,
+          start: new Date(),
+          end: new Date(Date.now() + 3600 * 1000),
+          title: 'Meeting with a very very very long title',
+          editable: false,
+          startEditable: false,
+          durationEditable: false,
+          display: 'auto',
+          backgroundColor: undefined,
+          extendedProps: {
+            weGroupInfo: {
+              name: "We Group 1",
+              logoSrc: "icon.png"
+            }
+          },
+        },
+        {
+          id: 'id2',
+          resourceIds: [],
+          allDay: false,
+          start: new Date(Date.now() + 3600 * 3000),
+          end: new Date(Date.now() + 3600 * 4000),
+          title: 'Another Meeting with an even longer title indeed indeed? really? yes, indeed.',
+          editable: false,
+          startEditable: false,
+          durationEditable: false,
+          display: 'auto',
+          backgroundColor: undefined,
+          extendedProps: {},
+        },
+      ];
+      render(
+        html`
+          <event-calendar
+            .events=${events}
+            @date-clicked=${e => alert(e.detail.date)}
+          >
+            some light-dom
+          </event-calendar>
+        `,
+        document.querySelector('#demo')
+      );
+    </script>
+  </body>
+</html>

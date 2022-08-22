@@ -1,0 +1,121 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/index.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./elements/event-calendar"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./types"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/types.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/elements/event-calendar.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "EventCalendar",
+          "members": [
+            {
+              "kind": "field",
+              "name": "events",
+              "type": {
+                "text": "Array<Event>"
+              },
+              "default": "[]",
+              "attribute": "events"
+            },
+            {
+              "kind": "field",
+              "name": "calendarEl",
+              "type": {
+                "text": "HTMLElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "props",
+              "type": {
+                "text": "any"
+              },
+              "default": "{}",
+              "attribute": "props"
+            },
+            {
+              "kind": "field",
+              "name": "calendar",
+              "type": {
+                "text": "any"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "date-clicked",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "events",
+              "type": {
+                "text": "Array<Event>"
+              },
+              "default": "[]",
+              "fieldName": "events"
+            },
+            {
+              "name": "props",
+              "type": {
+                "text": "any"
+              },
+              "default": "{}",
+              "fieldName": "props"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "EventCalendar",
+          "declaration": {
+            "name": "EventCalendar",
+            "module": "src/elements/event-calendar.ts"
+          }
+        }
+      ]
+    }
+  ]
+}
