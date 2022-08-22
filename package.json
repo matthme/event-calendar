@@ -13,11 +13,11 @@
   "scripts": {
     "analyze": "cem analyze --litelement",
     "start": "rollup -c && concurrently -k -r \"rollup -c -w\" \"wds\"",
-    "build": "rollup -c && npm run analyze -- --exclude dist",
+    "build": "rimraf dist && rollup -c && npm run analyze -- --exclude dist",
     "prepublish": "tsc && npm run analyze -- --exclude dist",
     "lint": "eslint --ext .ts,.html . --ignore-path .gitignore && prettier \"**/*.ts\" --check --ignore-path .gitignore",
     "format": "eslint --ext .ts,.html . --fix --ignore-path .gitignore && prettier \"**/*.ts\" --write --ignore-path .gitignore",
-    "publish-to-branch": "npm run lint && npm run build && gh-pages -d ./ -b ui-build-cross-we-calendar"
+    "publish-to-branch": "rimraf dist && npm run lint && npm run build && gh-pages -d ./ -b ui-build-cross-we-calendar"
   },
   "dependencies": {
     "lit": "^2.0.2"
@@ -47,6 +47,7 @@
     "rollup": "^2.75.7",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-postcss-lit": "^2.0.0",
+    "rimraf": "^3.0.2",
     "tslib": "^2.3.1",
     "typescript": "^4.5.2"
   },
